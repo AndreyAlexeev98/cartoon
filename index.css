@@ -12,7 +12,7 @@
 
 .box_front {
     position: relative;
-    
+    animation: background-animate 60s infinite;
     overflow: hidden;
     
     width: 500px;
@@ -67,9 +67,9 @@
 
 .ship {
     position: absolute;
-    right: 0;
+    right: -100px;
     bottom: 30px;
-    /* animation: ship 3s infinite; */
+    animation: ship 25s infinite linear 5s;
     width: 100px;
     height: 36px;
 }
@@ -111,22 +111,26 @@
 .smoke-1 {
     top: -25px;
     right: 44px;
+    animation: smoke-1 2s infinite linear ;
 }
 
 .smoke-2 {
     top: -25px;
     right: 42px;
+    animation: smoke-2 2s infinite linear 0.5s;
 }
 
 .smoke-3 {
     top: -25px;
     right: 49px;
+    animation: smoke-3 2s infinite linear 1s;
 }
 
 .sun {
     position: absolute;
     top: 30px;
     right: 50%;
+    animation: sun-fly 60s infinite linear, sun-rotate 8s infinite linear;
     
     width: 80px;
     height: 80px;
@@ -232,18 +236,26 @@
 
 .cloud-1 {
     top: 10px;
+    transform: scale(0.4);
+    animation: cloud-1 40s infinite linear;
 }
 
 .cloud-2 {
     top: 50px;
+    transform: scale(-0.5, 0.5);
+    animation: cloud-2 25s infinite linear 3s;
 }
 
 .cloud-3 {
     top: 100px;
+    transform: scale(0.6);
+    animation: cloud-3 20s infinite linear 7s;
 }
 
 .cloud-4 {
     top: 170px;
+    transform: scale(-0.7, 0.7);
+    animation: cloud-4 17s infinite linear 5s;
 }
 
 .sea {
@@ -274,10 +286,206 @@
 
 @keyframes ship {
     0% {
-        right: -50px;
+        right: -100px;
     }
-
     100% {
         right: 550px;
     }
 }
+
+@keyframes cloud-1 {
+    0% {
+        left: -180px;
+    }
+    100% {
+        left: 500px;
+    }
+}
+@keyframes cloud-2 {
+    0% {
+        left: -180px;
+    }
+    100% {
+        left: 500px;
+    }
+}
+
+@keyframes cloud-3 {
+    0% {
+        left: -180px;
+    }
+    100% {
+        left: 500px;
+    }
+}
+
+@keyframes cloud-4 {
+    0% {
+        left: -180px;
+    }
+    100% {
+        left: 500px;
+    }
+}
+
+@keyframes smoke-1 {
+    0% {
+        top: -25px;
+        transform: scale(1);
+        opacity: 1;
+        right: 44px;
+    }
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        top: -50px;
+        transform: scale(2.5);
+        opacity: 0;
+        right: 34px;
+    }
+}
+@keyframes smoke-2 {
+    0% {
+        top: -25px;
+        transform: scale(1);
+        opacity: 1;
+        right: 42px;
+    }
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        top: -50px;
+        transform: scale(2.5);
+        opacity: 0;
+        right: 32px;
+    }
+}
+@keyframes smoke-3 {
+    0% {
+        top: -25px;
+        transform: scale(1);
+        opacity: 1;
+        right: 49px;
+    }
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        top: -50px;
+        transform: scale(2.5);
+        opacity: 0;
+        right: 39px;
+    }
+}
+
+/* @keyframes sun-fly {
+    0% {
+        top: 243px;
+        right: 104%;
+    }
+    25% {
+        top: 100px;
+        right: 80%;
+    }
+    45% {
+        top: 20px;
+        right: 45%;
+    }
+    55% {
+        top: 26px;
+        right: 35%;
+    }
+    70% {
+        top: 100px;
+        right: 20%;
+    }
+
+    100% {
+        top: 243px;
+        right: -20%;
+    }
+} */
+
+@keyframes sun-fly {
+    0% {
+        top: 243px;
+        right: 104%;
+    }
+    16% {
+        top: 100px;
+        right: 80%;
+    }
+    33% {
+        top: 20px;
+        right: 45%;
+    }
+    40% {
+        top: 26px;
+        right: 35%;
+    }
+    50% {
+        top: 100px;
+        right: 20%;
+    }
+
+    66% {
+        top: 243px;
+        right: -20%;
+    }
+    100% {
+        top: 245px;
+        right: -25%;
+    }
+}
+
+@keyframes sun-rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes background-animate {
+    0% {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    40% {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+
+    70% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    93% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    100% {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+
+}
+
+
+
+
+.test {
+    position: relative;  /* элемент с относительным позиционированием */
+    animation: animate-name 4s steps(3,start) 500ms infinite reverse; /* "name (имя анимации-как в @keyframes) duration(длительность) timing-function (кривая скорости - шаговая анимация) delay (задержка 500 миллисекунд) iteration-count (количество повторов анимации - бесконечно) direction (направление анимации - reverse(в обратном направлении) )" */ 
+    } 
+    @keyframes animate-name {
+        0%   {left: 0px;} /* задаем положение элемента при начале анимации */ 
+        50% {left: 500px; border-radius: 50px; background: plum; } /* задаем смещение элемента относительно левого края, изменяем цвет заднего фона и определяем форму границ (скругление) */ 
+        100% {left: 0px;background: green; } /* задаем первоначальное положение и задаем цвет заднего фона по завершению анимации */ 
+    } 
